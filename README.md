@@ -1,4 +1,4 @@
-# test-admin
+# react-react-admin
 
 ## Installation
 
