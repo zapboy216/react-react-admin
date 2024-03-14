@@ -5,6 +5,7 @@ import {
   TextField,
   ReferenceField,
   EditButton,
+  Create,
   Edit,
   SimpleForm,
   ReferenceInput,
@@ -17,13 +18,23 @@ export const PostList = () => {
 
 export const PostEdit = () => (
   <Edit>
-      <SimpleForm>
-          <ReferenceInput source="userId" reference="users" />
-          <TextInput source="id" />
-          <TextInput source="title" />
-          <TextInput source="body" />
-      </SimpleForm>
-  </Edit>
+  <SimpleForm>
+    <TextInput source="id" InputProps={{ disabled: true }} />
+    <ReferenceInput source="userId" reference="users" link="show" />
+
+    <TextInput source="title" />
+
+    <TextInput source="body" multiline rows={5} />
+  </SimpleForm>
+</Edit>
 );
 
-
+export const PostCreate = () => (
+    <Create>
+      <SimpleForm>
+        <ReferenceInput source="userId" reference="users" />
+        <TextInput source="title" />
+        <TextInput source="body" multiline rows={5} />
+      </SimpleForm>
+    </Create>
+  );
