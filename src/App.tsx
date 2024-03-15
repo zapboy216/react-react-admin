@@ -1,11 +1,13 @@
-import { Admin, Resource, ShowGuesser, EditGuesser } from 'react-admin';
+import { Admin, Resource, ShowGuesser } from 'react-admin';
 import { dataProvider } from './dataProvider';
 import { UserList } from "./users";
-import { PostList } from "./posts";
+import { PostList, PostEdit, PostCreate } from "./posts";
 
 export const App = () => (
   <Admin dataProvider={dataProvider}>
-    <Resource name="posts" list={PostList} edit={EditGuesser} />
+
+<Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} />
    <Resource name="users" list={UserList} show={ShowGuesser} recordRepresentation="name" />
+
   </Admin>
 );
